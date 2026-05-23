@@ -1,0 +1,78 @@
+services:
+  nginx:
+    image: ${DOCKER_REGISTRY:-docker.arvancloud.ir}/${DOCKER_OFFICIAL_NAMESPACE:-library}/nginx:1.27-alpine
+    depends_on:
+      - backend
+      - frontend
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf:ro
+    restart: unless-stopped
+
+  backend:
+    build:
+      context: ./backend
+      args:
+        DOCKER_REGISTRY: ${DOCKER_REGISTRY:-docker.arvancloud.ir}
+        DOCKER_OFFICIAL_NAMESPACE: ${DOCKER_OFFICIAL_NAMESPACE:-library}
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.devneeds.ir/simple/}
+    env_file: .env.example
+    expose:
+      - "8000"
+    depends_on:
+      - redis
+    restart: unless-stopped
+
+  celery:
+    build:
+      context: ./backend
+      args:
+        DOCKER_REGISTRY: ${DOCKER_REGISTRY:-docker.arvancloud.ir}
+        DOCKER_OFFICIAL_NAMESPACE: ${DOCKER_OFFICIAL_NAMESPACE:-library}
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.devneeds.ir/simple/}
+    command: celery -A config worker -l info
+    env_file: .env.example
+    depends_on:
+      - backend
+      - redis
+    restart: unless-stopped
+
+  celery-beat:
+    build:
+      context: ./backend
+      args:
+        DOCKER_REGISTRY: ${DOCKER_REGISTRY:-docker.arvancloud.ir}
+        DOCKER_OFFICIAL_NAMESPACE: ${DOCKER_OFFICIAL_NAMESPACE:-library}
+        PIP_INDEX_URL: ${PIP_INDEX_URL:-https://pypi.devneeds.ir/simple/}
+    command: celery -A config beat -l info
+    env_file: .env.example
+    depends_on:
+      - backend
+      - redis
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        DOCKER_REGISTRY: ${DOCKER_REGISTRY:-docker.arvancloud.ir}
+        DOCKER_OFFICIAL_NAMESPACE: ${DOCKER_OFFICIAL_NAMESPACE:-library}
+        NPM_REGISTRY: ${NPM_REGISTRY:-https://npm.devneeds.ir/}
+    env_file: .env.example
+    expose:
+      - "3000"
+    depends_on:
+      - backend
+    restart: unless-stopped
+
+  redis:
+    image: ${DOCKER_REGISTRY:-docker.arvancloud.ir}/${DOCKER_OFFICIAL_NAMESPACE:-library}/redis:7-alpine
+    expose:
+      - "6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+
+volumes:
+  redis_data:
