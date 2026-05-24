@@ -5,6 +5,7 @@ from rest_framework.views import APIView
 from rest_framework_simplejwt.views import TokenRefreshView
 
 from .models import AuditLog, Branch, Role
+from .permissions import IsAdmin, IsAdminOrReadOnly
 from .serializers import (
     AuditLogSerializer,
     BranchSerializer,
@@ -16,13 +17,6 @@ from .serializers import (
     UserSerializer,
     VerifyOTPSerializer,
 )
-
-
-class IsAdminOrReadOnly(permissions.BasePermission):
-    def has_permission(self, request, view):
-        if request.method in permissions.SAFE_METHODS:
-            return request.user and request.user.is_authenticated
-        return bool(request.user and request.user.is_authenticated and (request.user.is_staff or request.user.is_admin))
 
 
 class RequestOTPView(APIView):
@@ -102,7 +96,7 @@ class RoleViewSet(viewsets.ModelViewSet):
 class AuditLogViewSet(viewsets.ReadOnlyModelViewSet):
     queryset = AuditLog.objects.select_related("user")
     serializer_class = AuditLogSerializer
-    permission_classes = [permissions.IsAdminUser]
+    permission_classes = [IsAdmin]
     filter_backends = [filters.SearchFilter, filters.OrderingFilter]
     search_fields = ["model_name", "object_id", "user__phone"]
     ordering_fields = ["created_at", "model_name"]

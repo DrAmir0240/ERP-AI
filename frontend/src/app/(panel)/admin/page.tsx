@@ -1,5 +1,24 @@
+import Link from "next/link";
+
 import { PanelShell } from "@/components/layout/panel-shell";
 
 export default function AdminPage() {
-  return <PanelShell title="پنل مدیر" description="مدیریت شعبه‌ها، نقش‌ها و تنظیمات Core در مرحله ۱.۲ اضافه می‌شود." />;
+  return (
+    <PanelShell title="پنل مدیر" description="دسترسی سریع به مدیریت Core، شعبه‌ها، نقش‌ها و لاگ‌های ممیزی.">
+      <div className="grid gap-4 md:grid-cols-3">
+        <Link className="rounded-3xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10" href="/admin/branches">
+          <p className="text-lg font-black">شعبه‌ها</p>
+          <p className="mt-2 text-sm text-white/60">لیست، ایجاد، ویرایش و حذف شعبه‌ها.</p>
+        </Link>
+        <Link className="rounded-3xl border border-white/10 bg-white/5 p-5 transition hover:bg-white/10" href="/admin/roles">
+          <p className="text-lg font-black">نقش‌ها</p>
+          <p className="mt-2 text-sm text-white/60">مدیریت ماتریس دسترسی نقش‌ها.</p>
+        </Link>
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
+          <p className="text-lg font-black">Audit Log</p>
+          <p className="mt-2 text-sm text-white/60">API ممیزی آماده مصرف در UI گزارش‌ها است.</p>
+        </div>
+      </div>
+    </PanelShell>
+  );
 }

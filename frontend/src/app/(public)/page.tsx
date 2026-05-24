@@ -4,7 +4,7 @@ export default function HomePage() {
   return (
     <PublicLayout>
       <section className="mx-auto flex min-h-[70vh] max-w-6xl flex-col justify-center px-6 py-20">
-        <p className="mb-4 text-sm font-semibold text-brand">فاز ۱.۱</p>
+        <p className="mb-4 text-sm font-semibold text-brand">DrGame Core</p>
         <h1 className="max-w-3xl text-4xl font-black leading-tight md:text-6xl">
           زیرساخت ERP دکترگیم آماده توسعه ماژول‌های Core است.
         </h1>
