@@ -22,7 +22,7 @@ INSTALLED_APPS = [
     "corsheaders",
     "channels",
     "apps.core.apps.CoreConfig",
-    "apps.inventory",
+    "apps.inventory.apps.InventoryConfig",
     "apps.accounts",
     "apps.orders",
     "apps.repair",
