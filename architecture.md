@@ -1626,50 +1626,50 @@ def verify_payment(authority: str) -> dict:
 #### مرحله ۱.۱ — راه‌اندازی محیط و پروژه
 
 **BackEnd**
-- [ ] ایجاد ساختار Monorepo (backend / frontend / nginx)
-- [ ] نوشتن `docker-compose.yml` با سرویس‌های: nginx, backend, celery, celery-beat, frontend, redis
-- [ ] ایجاد پروژه Django با ساختار `config/settings/base.py` و `development.py`
-- [ ] تنظیم `INSTALLED_APPS`، `DATABASES`، `CORS`، `REST_FRAMEWORK`
-- [ ] نوشتن `.env.example` با تمام متغیرهای محیطی
-- [ ] راه‌اندازی `Django Channels` با Redis Channel Layer
-- [ ] راه‌اندازی `Celery` و `Celery Beat`
-- [ ] تنظیم `Nginx` برای Reverse Proxy (api → Django, ws → Channels, / → Next.js)
-- [ ] نوشتن Makefile با دستورات رایج (build, migrate, shell, logs)
+- [x] ایجاد ساختار Monorepo (backend / frontend / nginx)
+- [x] نوشتن `docker-compose.yml` با سرویس‌های: nginx, backend, celery, celery-beat, frontend, redis
+- [x] ایجاد پروژه Django با ساختار `config/settings/base.py` و `development.py`
+- [x] تنظیم `INSTALLED_APPS`، `DATABASES`، `CORS`، `REST_FRAMEWORK`
+- [x] نوشتن `.env.example` با تمام متغیرهای محیطی
+- [x] راه‌اندازی `Django Channels` با Redis Channel Layer
+- [x] راه‌اندازی `Celery` و `Celery Beat`
+- [x] تنظیم `Nginx` برای Reverse Proxy (api → Django, ws → Channels, / → Next.js)
+- [x] نوشتن Makefile با دستورات رایج (build, migrate, shell, logs)
 
 **FrontEnd**
-- [ ] ایجاد پروژه Next.js 14+ با TypeScript و App Router
-- [ ] نصب و تنظیم Tailwind CSS + Shadcn/UI
-- [ ] تنظیم Axios با interceptors برای JWT و Refresh Token
-- [ ] ایجاد Zustand store برای Auth
-- [ ] تنظیم WebSocket client با auto-reconnect
-- [ ] ایجاد Layout اصلی (پنل Admin، Employee، Customer، Public)
-- [ ] تنظیم متغیرهای محیطی Next.js
+- [x] ایجاد پروژه Next.js 14+ با TypeScript و App Router
+- [x] نصب و تنظیم Tailwind CSS + Shadcn/UI
+- [x] تنظیم Axios با interceptors برای JWT و Refresh Token
+- [x] ایجاد Zustand store برای Auth
+- [x] تنظیم WebSocket client با auto-reconnect
+- [x] ایجاد Layout اصلی (پنل Admin، Employee، Customer، Public)
+- [x] تنظیم متغیرهای محیطی Next.js
 
 ---
 
 #### مرحله ۱.۲ — احراز هویت و مدیریت کاربران (Core)
 
 **BackEnd**
-- [ ] مدل `User` با شماره تلفن به عنوان شناسه اصلی
-- [ ] مدل `OTPCode` با منطق انقضا و تعداد تلاش
-- [ ] پیاده‌سازی `send_otp` Placeholder
-- [ ] API: `POST /auth/request-otp/` و `POST /auth/verify-otp/`
-- [ ] یکپارچه‌سازی `SimpleJWT` (Access + Refresh Token)
-- [ ] API: `POST /auth/token/refresh/`، `POST /auth/logout/`، `GET /auth/me/`
-- [ ] مدل `Role`، `Module`، `Permission` (RBAC)
-- [ ] مدل `UserRole` با ارتباط به Branch
-- [ ] API مدیریت نقش‌ها و دسترسی‌ها
-- [ ] مدل `Branch` و API کامل CRUD
-- [ ] مدل `AuditLog` و middleware لاگ‌گیری خودکار
+- [x] مدل `User` با شماره تلفن به عنوان شناسه اصلی
+- [x] مدل `OTPCode` با منطق انقضا و تعداد تلاش
+- [x] پیاده‌سازی `send_otp` Placeholder
+- [x] API: `POST /auth/request-otp/` و `POST /auth/verify-otp/`
+- [x] یکپارچه‌سازی `SimpleJWT` (Access + Refresh Token)
+- [x] API: `POST /auth/token/refresh/`، `POST /auth/logout/`، `GET /auth/me/`
+- [x] مدل `Role`، `Module`، `Permission` (RBAC)
+- [x] مدل `UserRole` با ارتباط به Branch
+- [x] API مدیریت نقش‌ها و دسترسی‌ها
+- [x] مدل `Branch` و API کامل CRUD
+- [x] مدل `AuditLog` و middleware لاگ‌گیری خودکار
 
 **FrontEnd**
-- [ ] صفحه ورود (ورود شماره تلفن → ارسال OTP → تأیید)
-- [ ] ذخیره Token در memory + Cookie برای Refresh
-- [ ] Guard برای صفحات محافظت‌شده
-- [ ] صفحه پروفایل کاربری
-- [ ] کامپوننت سوئیچ نقش (تب‌های مختلف برای نقش‌های متعدد)
-- [ ] صفحه مدیریت شعبه‌ها (لیست + CRUD)
-- [ ] صفحه مدیریت نقش‌ها و ماتریس دسترسی
+- [x] صفحه ورود (ورود شماره تلفن → ارسال OTP → تأیید)
+- [x] ذخیره Token در memory + Cookie برای Refresh
+- [x] Guard برای صفحات محافظت‌شده
+- [x] صفحه پروفایل کاربری
+- [x] کامپوننت سوئیچ نقش (تب‌های مختلف برای نقش‌های متعدد)
+- [x] صفحه مدیریت شعبه‌ها (لیست + CRUD)
+- [x] صفحه مدیریت نقش‌ها و ماتریس دسترسی
 
 ---
 
@@ -1680,43 +1680,43 @@ def verify_payment(authority: str) -> dict:
 #### مرحله ۲.۱ — انبار کالا و بازی فیزیکی
 
 **BackEnd**
-- [ ] مدل `Category` (سه‌لایه self-referential)
-- [ ] مدل `Product` با فیلدهای کامل
-- [ ] مدل `StockItem` (هر واحد با بارکد یونیک، وابسته به شعبه)
-- [ ] مدل `StockMovement` با تمام انواع عملیات
-- [ ] Signal برای کسر خودکار موجودی هنگام فروش
-- [ ] API کامل CRUD برای Category و Product
-- [ ] API موجودی: لیست، افزودن تکی و دسته‌ای
-- [ ] API گردش انبار با فیلترهای پیشرفته
-- [ ] مدل `BranchTransfer` و API فرآیند انتقال
+- [x] مدل `Category` (سه‌لایه self-referential)
+- [x] مدل `Product` با فیلدهای کامل
+- [x] مدل `StockItem` (هر واحد با بارکد یونیک، وابسته به شعبه)
+- [x] مدل `StockMovement` با تمام انواع عملیات
+- [x] Signal برای کسر خودکار موجودی هنگام فروش
+- [x] API کامل CRUD برای Category و Product
+- [x] API موجودی: لیست، افزودن تکی و دسته‌ای
+- [x] API گردش انبار با فیلترهای پیشرفته
+- [x] مدل `BranchTransfer` و API فرآیند انتقال
 
 **FrontEnd**
-- [ ] صفحه انبار کالا: لیست محصولات با جستجو و فیلتر
-- [ ] کلیک روی محصول → نمایش موجودی‌های مجزا با بارکد
-- [ ] فرم افزودن محصول و موجودی جدید
-- [ ] صفحه گردش انبار (Stock Movement Log)
-- [ ] صفحه درخواست انتقال بین شعبه
+- [x] صفحه انبار کالا: لیست محصولات با جستجو و فیلتر
+- [x] کلیک روی محصول → نمایش موجودی‌های مجزا با بارکد
+- [x] فرم افزودن محصول و موجودی جدید
+- [x] صفحه گردش انبار (Stock Movement Log)
+- [x] صفحه درخواست انتقال بین شعبه
 
 ---
 
 #### مرحله ۲.۲ — مدیریت اکانت‌ها
 
 **BackEnd**
-- [ ] مدل `GameAccount` (PS آنلاین/آفلاین، Xbox، Nintendo)
-- [ ] مدل `Game` با پلتفرم‌های مختلف
-- [ ] مدل `AccountGame` (Many-to-Many)
-- [ ] مدل `AccountSale` (لاگ فروش اکانت)
-- [ ] Signal برای افزایش `sold_count` پس از فروش
-- [ ] API CRUD اکانت‌ها
-- [ ] API `POST /accounts/calculate-price/` — محاسبه بر اساس بازی‌های انتخابی
-- [ ] API لاگ فروش هر اکانت
+- [x] مدل `GameAccount` (PS آنلاین/آفلاین، Xbox، Nintendo)
+- [x] مدل `Game` با پلتفرم‌های مختلف
+- [x] مدل `AccountGame` (Many-to-Many)
+- [x] مدل `AccountSale` (لاگ فروش اکانت)
+- [x] Signal برای افزایش `sold_count` پس از فروش
+- [x] API CRUD اکانت‌ها
+- [x] API `POST /accounts/calculate-price/` — محاسبه بر اساس بازی‌های انتخابی
+- [x] API لاگ فروش هر اکانت
 
 **FrontEnd**
-- [ ] صفحه انبار اکانت‌های آنلاین PS
-- [ ] صفحه انبار اکانت‌های آفلاین PS
-- [ ] کامپوننت مشاهده لاگ فروش اکانت
-- [ ] فرم افزودن/ویرایش اکانت
-- [ ] کامپوننت انتخاب بازی و محاسبه قیمت زنده
+- [x] صفحه انبار اکانت‌های آنلاین PS
+- [x] صفحه انبار اکانت‌های آفلاین PS
+- [x] کامپوننت مشاهده لاگ فروش اکانت
+- [x] فرم افزودن/ویرایش اکانت
+- [x] کامپوننت انتخاب بازی و محاسبه قیمت زنده
 
 ---
 
@@ -1727,43 +1727,43 @@ def verify_payment(authority: str) -> dict:
 #### مرحله ۳.۱ — ثبت و مدیریت سفارش
 
 **BackEnd**
-- [ ] مدل `Order` با تمام انواع سفارش و فیلدهای کامل
-- [ ] مدل `OrderItem` برای آیتم‌های متنوع
-- [ ] منطق ثبت تخفیف + ثبت نام ثبت‌کننده
-- [ ] منطق B2B: اعمال خودکار تخفیف بازی
-- [ ] API `POST /orders/` برای انواع مختلف سفارش
-- [ ] API تغییر وضعیت سفارش
-- [ ] API ثبت مشخصات پیک
-- [ ] API لغو سفارش با منطق برگشت موجودی
-- [ ] مدل `ReturnPolicy` و API تنظیم
+- [x] مدل `Order` با تمام انواع سفارش و فیلدهای کامل
+- [x] مدل `OrderItem` برای آیتم‌های متنوع
+- [x] منطق ثبت تخفیف + ثبت نام ثبت‌کننده
+- [x] منطق B2B: اعمال خودکار تخفیف بازی
+- [x] API `POST /orders/` برای انواع مختلف سفارش
+- [x] API تغییر وضعیت سفارش
+- [x] API ثبت مشخصات پیک
+- [x] API لغو سفارش با منطق برگشت موجودی
+- [x] مدل `ReturnPolicy` و API تنظیم
 
 **FrontEnd**
-- [ ] صفحه لیست سفارش‌ها (با تب‌های نوع سفارش)
+- [x] صفحه لیست سفارش‌ها (با تب‌های نوع سفارش)
 - [ ] فرم ثبت سفارش حضوری (چندمرحله‌ای)
-- [ ] صفحه جزئیات سفارش با Timeline وضعیت
+- [x] صفحه جزئیات سفارش با Timeline وضعیت
 - [ ] کامپوننت ثبت اطلاعات پیک
-- [ ] کامپوننت تغییر وضعیت سفارش
+- [x] کامپوننت تغییر وضعیت سفارش
 
 ---
 
 #### مرحله ۳.۲ — فاکتور و پرداخت
 
 **BackEnd**
-- [ ] مدل `Invoice` با شماره‌گذاری پیوسته (INV-YYYY-NNNNN)
+- [x] مدل `Invoice` با شماره‌گذاری پیوسته (INV-YYYY-NNNNN)
 - [ ] منطق محاسبه VAT بر اساس `TaxConfig` جاری
 - [ ] API تولید PDF فاکتور (WeasyPrint یا ReportLab)
-- [ ] مدل `Payment` با انواع پرداخت
-- [ ] API ثبت پرداخت (حضوری توسط صندوق‌دار / آنلاین)
+- [x] مدل `Payment` با انواع پرداخت
+- [x] API ثبت پرداخت (حضوری توسط صندوق‌دار / آنلاین)
 - [ ] API `initiate_payment` Placeholder
 - [ ] Journal Entry خودکار پس از ثبت پرداخت
-- [ ] مدل `Refund` و API فرآیند استرداد
+- [x] مدل `Refund` و API فرآیند استرداد
 
 **FrontEnd**
 - [ ] صفحه پیش‌نمایش فاکتور (قابل پرینت)
-- [ ] کامپوننت ثبت پرداخت حضوری
+- [x] کامپوننت ثبت پرداخت حضوری
 - [ ] کامپوننت پرداخت آنلاین (placeholder)
 - [ ] فرم درخواست استرداد
-- [ ] صفحه مدیریت استرداد‌ها (پنل Admin)
+- [x] صفحه مدیریت استرداد‌ها (پنل Admin)
 
 ---
 
@@ -1774,37 +1774,37 @@ def verify_payment(authority: str) -> dict:
 #### مرحله ۴.۱ — سیستم تعمیر
 
 **BackEnd**
-- [ ] مدل `RepairOrder` و `RepairSettings`
-- [ ] API ثبت سفارش تعمیر (آنلاین و حضوری)
-- [ ] API قبول سفارش توسط تعمیرکار
-- [ ] API ثبت قیمت + محاسبه خودکار markup
-- [ ] API تأیید/رد قیمت توسط مشتری
-- [ ] API تکمیل تعمیر و تحویل
-- [ ] API تنظیم درصد سود مدیریت
+- [x] مدل `RepairOrder` و `RepairSettings`
+- [x] API ثبت سفارش تعمیر (آنلاین و حضوری)
+- [x] API قبول سفارش توسط تعمیرکار
+- [x] API ثبت قیمت + محاسبه خودکار markup
+- [x] API تأیید/رد قیمت توسط مشتری
+- [x] API تکمیل تعمیر و تحویل
+- [x] API تنظیم درصد سود مدیریت
 - [ ] Journal Entry برای درآمد تعمیر و حق‌الزحمه تعمیرکار
 
 **FrontEnd**
-- [ ] پنل تعمیرکار: لیست سفارش‌ها با تب وضعیت
-- [ ] فرم ثبت قیمت تعمیر + نمایش قیمت نهایی با markup
-- [ ] کامپوننت تأیید/رد قیمت در پنل مشتری
-- [ ] صفحه تنظیم markup در پنل Admin
+- [x] پنل تعمیرکار: لیست سفارش‌ها با تب وضعیت
+- [x] فرم ثبت قیمت تعمیر + نمایش قیمت نهایی با markup
+- [x] کامپوننت تأیید/رد قیمت در پنل مشتری
+- [x] صفحه تنظیم markup در پنل Admin
 
 ---
 
 #### مرحله ۴.۲ — Procurement و مدیریت تأمین‌کنندگان
 
 **BackEnd**
-- [ ] مدل `Supplier` و API CRUD
-- [ ] مدل `PurchaseRequest` و API گردش کار (draft→submit→approve→reject→purchase)
-- [ ] مدل `PurchaseOrder` و API ثبت خرید
-- [ ] Signal: ثبت خودکار StockMovement پس از ثبت خرید
+- [x] مدل `Supplier` و API CRUD
+- [x] مدل `PurchaseRequest` و API گردش کار (draft→submit→approve→reject→purchase)
+- [x] مدل `PurchaseOrder` و API ثبت خرید
+- [x] Signal: ثبت خودکار StockMovement پس از ثبت خرید
 - [ ] Journal Entry خودکار برای خرید
 
 **FrontEnd**
-- [ ] صفحه مدیریت تأمین‌کنندگان
-- [ ] صفحه درخواست خرید (ثبت و پیگیری)
-- [ ] صفحه تأیید درخواست‌های خرید (پنل Admin)
-- [ ] صفحه ثبت خرید انجام‌شده
+- [x] صفحه مدیریت تأمین‌کنندگان
+- [x] صفحه درخواست خرید (ثبت و پیگیری)
+- [x] صفحه تأیید درخواست‌های خرید (پنل Admin)
+- [x] صفحه ثبت خرید انجام‌شده
 
 ---
 
